@@ -1,8 +1,11 @@
 # LevenshteinRust
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/levenshtein_rust`. To experiment with that code, run `bin/console` for an interactive prompt.
+Ths calculates the [Levenshtein distance](https://en.m.wikipedia.org/wiki/Levenshtein_distance) between two strings, in Rust. It's 10x to 500x faster to standard Ruby implementations.
 
-TODO: Delete this and the text above, and describe your gem
+```
+irb(main) LevenshteinRust.distance("Tim Brady", "Tim Brody") 
+=> "1"
+```
 
 ## Installation
 
@@ -20,9 +23,21 @@ Or install it yourself as:
 
     $ gem install levenshtein_rust
 
-## Usage
+## Compiling native
 
-TODO: Write usage instructions here
+This gem requires compiling if you develop and then use on a different OS, for instance develop on MacOs but use it on an Ubuntu server. The fool-proof way to compile is to 
+
+    $ cd
+    $ git clone https://github.com/heri/levenshtein_rust.git
+    $ cd levenshtein_rust
+
+Assuming you have rust installed :
+
+    $ rake build
+
+This will create `native.*` files in `lib/levenshtein_rust` that work on your OS. Copy these native files to where the `levenshtein_rust` gem is installed. *Example (customize depending on your local ruby/bundle install)*: 
+
+    $ cp lib/levenshtein_rust/native.*  /home/user/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/bundler/gems/levenshtein_rust
 
 ## Development
 
@@ -32,7 +47,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/levenshtein_rust. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/heri/levenshtein_rust. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
