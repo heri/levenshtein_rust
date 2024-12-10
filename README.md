@@ -7,6 +7,10 @@ irb(main) LevenshteinRust.distance("Tim Brady", "Tim Brody")
 => "1"
 ```
 
+## Background
+
+Read https://studiozenkai.com/post/levenshtein-rust/ for context
+
 ## Installation
 
 Add this line to your application's Gemfile:
